@@ -3,17 +3,12 @@ from dataclasses import dataclass
 
 @dataclass
 class InfoMessage:
-    """Информационное сообщение о тренировке.
-    training_type - имя класса тренировки,
-    duration - длительность тренировки в часах,
-    distance - дистанция в километрах за тренировку,
-    speed - средняя скорость, с которой двигался,
-    calories - количество килокалорий за тренировку."""
-    training_type: str
-    duration: float
-    distance: float
-    speed: float
-    calories: float
+    """Информационное сообщение о тренировке."""
+    training_type: str  # имя класса тренировки
+    duration: float  # длительность тренировки в часах
+    distance: float  # дистанция в километрах за тренировку
+    speed: float  # средняя скорость
+    calories: float  # количество килокалорий за тренировку
 
     def get_message(self) -> str:
         return (f'Тип тренировки: {self.training_type}; '
@@ -24,18 +19,15 @@ class InfoMessage:
 
 
 class Training:
-    """Базовый класс тренировки.
-    action - количество совершённых действий(шаги,гребки),
-    duration - длительность тренировки,
-    weight - вес спортсмена."""
+    """Базовый класс тренировки."""
     M_IN_KM: int = 1000
     LEN_STEP: float = 0.65
     MIN_IN_H: int = 60
 
     def __init__(self,
-                 action: int,
-                 duration: float,
-                 weight: float
+                 action: int,  # количество совершённых действий(шаги,гребки)
+                 duration: float,  # длительность тренировки
+                 weight: float  # вес спортсмена
                  ) -> None:
         self.action = action
         self.duration = duration
@@ -76,8 +68,8 @@ class Running(Training):
 
 class SportsWalking(Training):
     """Тренировка: спортивная ходьба."""
-    COEFF_CALORIE_3 = 0.035
-    COEFF_CALORIE_4 = 0.029
+    COEFF_CALORIE_3: float = 0.035
+    COEFF_CALORIE_4: float = 0.029
 
     def __init__(self,
                  action: int,
@@ -97,8 +89,8 @@ class SportsWalking(Training):
 class Swimming(Training):
     """Тренировка: плавание."""
     LEN_STEP: float = 1.38
-    COEFF_CALORIE_5 = 1.1
-    COEFF_CALORIE_6 = 2
+    COEFF_CALORIE_5: float = 1.1
+    COEFF_CALORIE_6: int = 2
 
     def __init__(self,
                  action: int,
