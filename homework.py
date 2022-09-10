@@ -4,11 +4,11 @@ from dataclasses import dataclass
 @dataclass
 class InfoMessage:
     """Информационное сообщение о тренировке."""
-    training_type: str  # имя класса тренировки
-    duration: float  # длительность тренировки в часах
-    distance: float  # дистанция в километрах за тренировку
-    speed: float  # средняя скорость
-    calories: float  # количество килокалорий за тренировку
+    training_type: str
+    duration: float
+    distance: float
+    speed: float
+    calories: float
 
     def get_message(self) -> str:
         return (f'Тип тренировки: {self.training_type}; '
@@ -25,9 +25,9 @@ class Training:
     MIN_IN_H: int = 60
 
     def __init__(self,
-                 action: int,  # количество совершённых действий(шаги,гребки)
-                 duration: float,  # длительность тренировки
-                 weight: float  # вес спортсмена
+                 action: int,
+                 duration: float,
+                 weight: float
                  ) -> None:
         self.action = action
         self.duration = duration
